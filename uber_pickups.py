@@ -5,24 +5,32 @@ import pandas as pd
 st.title('Uber pickups in NYC')
 
 DATE_COLUMN = 'date/time'
-DATA_URL (
+DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
+'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
+
+def load_data(nrows):
+    data = pd.read_csv(DATA_URL, nrows=nrows)
+    lowercase =lambda x: str(x).lower()
+    data.rename(lowercase, axis= 'columns', inplace=True)
+    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
+    return data
 
 # df = pd.DataFrame({
-#   'first column': [1, 2, 3, 4],
-#   'second column': [10, 20, 30, 40]
+# 'first column': [1, 2, 3, 4],
+# 'second column': [10, 20, 30, 40]
 # })
 
 # df
 
 # chart_data = pd.DataFrame(
-#   np.random.randn(20, 3),
-#   columns=['a', 'b', 'c'])
+# np.random.randn(20, 3),
+# columns=['a', 'b', 'c'])
 
 # st.line_chart(chart_data)
 
 # map_data = pd.DataFrame(
-#   np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-#   columns=['lat', 'lon'])
+# np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+# columns=['lat', 'lon'])
 
 # st.map(map_data)
 
