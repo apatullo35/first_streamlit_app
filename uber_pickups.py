@@ -29,10 +29,15 @@ hist_values = np.histogram(
 
 st.bar_chart(hist_values)
 
-hour_to_filter = 17
+hour_to_filter = st.slider('hour', 0, 23, 17)
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
-st.subheader(f'Map of all pickups at {hour_to_filter}:00')
+st.subheader(f'Map of all pickups at %s:00' % hour_to_filter)
 st.map(filtered_data)
+
+# hour_to_filter = 17
+# filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
+# st.subheader(f'Map of all pickups at {hour_to_filter}:00')
+# st.map(filtered_data)
 
 # df = pd.DataFrame({
 # 'first column': [1, 2, 3, 4],
