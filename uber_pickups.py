@@ -29,6 +29,9 @@ hist_values = np.histogram(
 
 st.bar_chart(hist_values)
 
+st.subheader('Map of all pickups')
+st.map(data)
+
 # df = pd.DataFrame({
 # 'first column': [1, 2, 3, 4],
 # 'second column': [10, 20, 30, 40]
