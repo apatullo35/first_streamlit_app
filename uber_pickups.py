@@ -31,7 +31,7 @@ st.bar_chart(hist_values)
 
 hour_to_filter = 17
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
-st.subheader('Map of all pickups at {hour_to_filter}:00')
+st.subheader(f'Map of all pickups at {hour_to_filter}:00')
 st.map(filtered_data)
 
 # df = pd.DataFrame({
